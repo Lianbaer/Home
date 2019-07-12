@@ -1,2 +1,2 @@
 # Home
-:octocat: -A Home page
+A Home page
