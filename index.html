@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- by: Lianbaer.com -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="referrer" content="never">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="description" content="手帳 & ノート">
+  <meta name="keywords" content="脸巴児，Lianbaer">
+  <link rel="icon" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png"/>
+  <title>脸巴児</title>
+  <style>
+    * { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    html { height: 100vh; }
+    body { font-size: 1em; }
+    .main { margin-top: 30vh; margin-left: 300px; transition: margin .5s; }
+    .logo { width: 150px; height: 50px; background-color: black; border-radius: 3px; }
+    .logo::before { content: "LianBaer"; position: relative; font-size: 36px; line-height: 50px; top: 0; left: -2px; color: white; }
+    .logo::after { content: ""; display: block; opacity: 0; transition: opacity .5s; position: relative; width: calc(61px * 1.5); height: calc(49px * 1.5); top: -115px; left: -4px; background-image: url('https://s1.hdslb.com/bfs/static/jinkela/videoplay/images/22.png'); background-size: cover; }
+    .logo:hover::after { opacity: 1; }
+    .desc { margin: 15px 0; color: black; font-size: 16px; line-height:20px; }
+    .nav { text-align: center; font-size: 14px; text-align: left; }
+    .nav ul { list-style: none; }
+    .nav li { display: inline-block; margin-right: 5px; }
+    .nav a { color: black; transition: color .5s; }
+    .nav a:hover { color: gray; }
+    .footer{ width: 100vw; height: 100px; position: fixed; bottom: 0; text-align: center; color: whitesmoke; transition: color .5s; }
+    .footer:hover { color: gray; }
+    .icp { font-size: 10px; line-height: 100px; }
+    .antiselect { user-select: none; -ms-user-select: none; -moz-user-select: none; -webkit-user-select: none; }
+    
+    .link { position: fixed; top: 0; left: 0; width: calc(100vw - 40px); height: calc(100vh - 40px); background-color: whitesmoke; padding: 20px; overflow-y: scroll; transition: opacity .5s, top .5s; -webkit-overflow-scrolling: touch; }
+    .l-back { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; -webkit-filter: blur(100px); -moz-filter: blur(100px); -o-filter: blur(100px); -ms-filter: blur(100px); filter: blur(100px); opacity: .5; transition: background .25s; }
+    .l-hidden { top: 100vh; opacity: 0; }
+    .l-close { position: fixed; top: 20px; right: 20px; width: 40px; height: 40px; z-index: 9999; filter: grayscale(100%); transition: filter .3s; }
+    .l-close:hover { filter: grayscale(0%); }
+    .lc-1, .lc-2 { display: block; position: absolute; top: 15px; left: 0px;  width: 40px; height: 10px; background-color: skyblue; border-radius: 3px; transition: background .5s; }
+    .lc-1 { transform: rotate(45deg); }
+    .lc-2 { transform: rotate(-45deg); }
+    .l-group { width: 100%; }
+    .l-title { margin: 20px; }
+    .l-box { width: 100%; }
+    .l-box:before, .l-box:after { content: ''; display: table; }
+    .l-box:after { clear: both; }
+    .l-item { position: relative; float: left; width: calc(20% - 40px); height: 64px; padding: 10px; margin: 10px; border-radius: 15px; transition: background .5s; }
+    .l-item:hover { background-color: skyblue; }
+    .li-logo { display: inline-block; float: left; width: 64px; height: 64px; background-color: white; background-size: cover; background-position: center; border-radius: 32px; transition: transform .5s, border-radius .5s; }
+    .l-item:hover .li-logo { transform: rotate(0deg); border-radius: 12px; }
+    .l-item h2, .l-item span { margin-left: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .l-item h2 { display: inline-block; float: left; width: calc(100% - 70px); height: 38px; line-height: 38px; font-size: 22px; font-weight: normal; }
+    .l-item span { display: inline-block; float: left; max-width: calc(100% - 70px); }
+    
+    @media screen and (max-width: 1199px) {
+      .main { margin-left: 200px; }
+      .l-item { width: calc(25% - 40px); }
+	}
+
+    @media screen and (max-width: 991px) {
+      .main { margin-left: 150px; }
+      .l-item { width: calc(33.33% - 40px); }
+    }
+
+    @media screen and (max-width: 767px) {
+      .main { margin-left: 100px; }
+      .l-item { width: calc(50% - 40px); }
+    }
+
+    @media screen and (max-width: 512px) {
+      .main { margin-left: 50px; }
+      .l-item { width: calc(100% - 40px); }
+    }
+  </style>
+</head>
+<body class="antiselect">
+  <div class="main">
+    <div class="logo" onmouseover="plaaaay('miao')"></div>
+    <div class="desc">
+      <p>*This is my zine. I write about “shit” I care about.</p>
+    </div>
+    <ul class="nav">
+      <!--li><a target="_blank" href="https://blog.chenplus.com/">BLOG</a></li-->
+      <!--li><a target="_blank" href="https://blog.chenplus.com/">PHOTO</a></li-->
+      <li><a target="_blank" href="https://blog.chenplus.com/">LET'S GO!</a></li>
+    </ul>
+  </div>
+  <div class="footer" onmouseover="exWords('#icp', '渝ICP备18007511号')" onmouseout="exWords('#icp', 'YU ICP NO.18007511')">
+    <div class="icp">
+      <p id="icp">YU ICP NO.18007511</p>
+    </div>
+  </div>
+  <div class="link l-hidden" id="link">
+    <div class="l-back l-hidden" id="l-back"></div>
+    <div class="l-close" onclick="swLinks(0);">
+      <span class="lc-1"></span>
+      <span class="lc-2"></span>
+    </div>
+  </div>
+  <div style="display: none;">
+    <!-- 没错！就是你！准备好了吗？ ///// 【泠鸢】交织together【单人版】 ///// https://www.bilibili.com/video/av15770997 -->
+    <audio id="ruready" src="https://blog.chenplus.com/music/are_you_ready.ogg" preload="auto">Your browser does not support the audio element.</audio>
+    <!-- 喵~ ///// 点击领取你的猫娘女友！总有一款适合你！~ ///// https://www.bilibili.com/video/av55305494 -->
+    <audio id="miao" src="https://blog.chenplus.com/music/miao_cocoa.ogg" preload="auto">Your browser does not support the audio element.</audio>
+  </div>
+</body>
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  var plaaaay = function(id) {
+    $('#' + id)[0].play();
+  }
+  var exWords = function(id, str) {
+    $(id).html(str);
+  }
+  
+  var getLinks = function(url) {
+    $.getJSON(url, {t: Date.parse(new Date())}, function(result) {
+      $.each(result, function(i, obj) {
+        $.each(obj, function(n, links) {
+          var l_group = $('<div class="l-group"></div>');
+          var l_title = $('<div class="l-title"><h1>' + n + '</h1></div>');
+          l_group.append(l_title);
+          var l_box = $('<div class="l-box"></div>');
+          links.sort(function(){ return 0.5 - Math.random() });
+          $.each(links, function(j, link) {
+            var lil_url = link.logo != null ? link.logo : '/src/loading.svg';
+            var lid_text = link.desc != null ? link.desc : '暂无描述 ┑(￣Д ￣)┍';
+            var l_item = $('<div class="l-item"></div>');
+            l_item.attr("title", lid_text + '\n' + link.href);
+            l_item.bind('click', function(){
+              window.open(link.href + (link.noUtm === undefined ? '?utm_source=lianbaer.com' : ''));
+            });
+            var li_logo = $('<div class="li-logo"></div>');
+            li_logo.css('background-image', 'url(' + lil_url + ')');
+            l_item.append(li_logo);
+            var li_name = $('<h2>' + link.name + '</h2>');
+            l_item.append(li_name);
+            var li_desc = $('<span>' + lid_text + '</span>');
+            l_item.append(li_desc);
+            l_item.bind('mouseover', function(){
+              $('.l-back').css('background-image', 'url(' + lil_url + ')');
+            });
+            l_box.append(l_item);
+          });
+          l_group.append(l_box);
+          $('#link').append(l_group);
+        });
+      });
+    });
+  }
+  $(function(){
+  	getLinks('./links.json');
+    if(location.hash == '#link') {
+      $('#link').removeClass('l-hidden');
+      $('#l-back').removeClass('l-hidden');
+    }
+  });
+</script>
+ <a href="https://github.com/Lianbaer" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#000; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    </body>
+</html>
